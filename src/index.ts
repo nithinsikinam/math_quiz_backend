@@ -70,7 +70,8 @@ io.on('connection', (socket: Socket) => {
 });
 
 function startGame(roomId: string) {
-  nextQuestion(roomId);
+  io.to(roomId).emit('start-game');
+  //nextQuestion(roomId);
 }
 
 function nextQuestion(roomId: string) {
